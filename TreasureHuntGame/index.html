@@ -1,67 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Treasure Hunt AI Maze Solver</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Treasure Hunt AI Agent</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body {
-      font-family: sans-serif;
-      max-width: 800px;
-      margin: auto;
-      padding: 2rem;
-      background: #f8f8f8;
-    }
-    h1 {
-      color: #333;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f0f0f0;
+      padding: 20px;
     }
     img {
-      max-width: 100%;
+      max-width: 90%;
       height: auto;
-      border: 1px solid #ccc;
-      margin-top: 1rem;
+      margin: 20px 0;
+      border: 4px solid #333;
     }
-    code {
-      background: #eee;
-      padding: 0.2rem 0.4rem;
-      border-radius: 4px;
-    }
-    pre {
-      background: #eee;
-      padding: 1rem;
-      border-radius: 4px;
-      overflow-x: auto;
+    canvas {
+      max-width: 800px;
+      margin: 40px auto;
+      display: block;
     }
   </style>
 </head>
 <body>
-  <h1>🧠 Treasure Hunt AI Maze Solver</h1>
+  <h1>Treasure Hunt AI Agent</h1>
 
-  <p>
-    This Python-based project generates solvable mazes and trains an AI agent to navigate them using a reinforcement learning algorithm accelerated by pathfinding techniques.
-  </p>
+  <h2>Final Maze Path</h2>
+  <img src="pirate_path.png" alt="Maze with Agent Path" />
 
-  <h2>✨ Features</h2>
-  <ul>
-    <li>Procedural maze generation</li>
-    <li>Pathfinding-enhanced reinforcement learning</li>
-    <li>Real-time solving visualization (optional demo)</li>
-  </ul>
+  <h2>Agent Performance Over Episodes</h2>
+  <canvas id="episodeChart"></canvas>
 
-  <h2>🎥 Demo</h2>
-  <p>If you've added a demo, it will appear below:</p>
-  <img src="demo.gif" alt="AI solving a maze">
+  <script>
+    fetch("episode_rewards.json")
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        const ctx = document.getElementById('episodeChart').getContext('2d');
 
-  <h2>📦 Source Code</h2>
-  <p>
-    <a href="https://github.com/Chart5893/Chart5893.github.io/tree/main/TreasureHuntGame" target="_blank">View code on GitHub</a>
-  </p>
-
-  <h2>🚀 How to Run</h2>
-  <pre>
-git clone https://github.com/Chart5893/Chart5893.github.io
-cd TreasureHuntGame
-python main.py
-  </pre>
-
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: data.map((_, i) => i + 1), // Episodes 1 to N
+            datasets: [{
+              label: 'Total Reward per Episode',
+              data: data,
+              borderColor: 'blue',
+              backgroundColor: 'lightblue',
+              fill: false,
+              tension: 0.2,
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                display: true,
+                position: 'top'
+              }
+            },
+            scales: {
+              x: {
+                title: {
+                  display: true,
+                  text: 'Episode'
+                }
+              },
+              y: {
+                title: {
+                  display: true,
+                  text: 'Total Reward'
+                }
+              }
+            }
+          }
+        });
+      })
+      .catch(err => {
+        console.error("Failed to load episode_rewards.json", err);
+        document.getElementById('episodeChart').insertAdjacentHTML('afterend', '<p style="color: red;">Failed to load training data. Make sure episode_rewards.json is in the same directory as this HTML file.</p>');
+      });
+  </script>
 </body>
 </html>

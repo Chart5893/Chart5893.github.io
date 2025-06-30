@@ -173,3 +173,7 @@ class TreasureMaze(object):
 
         return actions
 
+        # Returns current (row, col) position of the agent
+    def agent_pos(self):
+        row, col, _ = self.state
+        return (row, col)
