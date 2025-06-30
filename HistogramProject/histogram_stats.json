@@ -1,0 +1,26 @@
+[
+  {
+    "Item":"Apple",
+    "Frequency":4
+  },
+  {
+    "Item":"Banana",
+    "Frequency":7
+  },
+  {
+    "Item":"Carrot",
+    "Frequency":2
+  },
+  {
+    "Item":"Donut",
+    "Frequency":5
+  },
+  {
+    "Item":"Egg",
+    "Frequency":3
+  },
+  {
+    "Item":"Fish",
+    "Frequency":6
+  }
+]

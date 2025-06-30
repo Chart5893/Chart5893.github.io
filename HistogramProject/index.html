@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Histogram Name Frequency</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      border-radius: 8px;
+    }
+    img {
+      width: 100%;
+      max-width: 700px;
+      border: 4px solid #444;
+      margin-top: 20px;
+    }
+    pre {
+      background-color: #eee;
+      padding: 15px;
+      text-align: left;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📈 Histogram Frequency Project</h1>
+    <p>This project parses a dataset and visualizes item frequency in both text and graphical form. Built with Python and Tkinter.</p>
+
+    <h2>Histogram Preview</h2>
+    <img src="histogram_image.png" alt="Histogram Visualization" />
+
+    <h2>Summary Stats</h2>
+    <div id="stats"><em>Loading summary stats...</em></div>
+
+    <script>
+      fetch("histogram_stats.json")
+        .then(response => response.json())
+        .then(data => {
+          const container = document.getElementById("stats");
+          container.innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+        })
+        .catch(err => {
+          document.getElementById("stats").innerHTML = "<p>Error loading stats.</p>";
+          console.error("Failed to load JSON", err);
+        });
+    </script>
+  </div>
+</body>
+</html>
