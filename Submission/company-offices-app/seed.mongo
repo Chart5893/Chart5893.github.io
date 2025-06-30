@@ -1,0 +1,27 @@
+use companyDB
+
+db.companies.insertMany([
+  {
+    name: "TechCorp",
+    founded_year: 2005,
+    offices: [
+      { city: "San Francisco", state: "CA" },
+      { city: "New York", state: "NY" }
+    ]
+  },
+  {
+    name: "Healthify",
+    founded_year: 2010,
+    offices: [
+      { city: "Austin", state: "TX" },
+      { city: "Seattle", state: "WA" }
+    ]
+  },
+  {
+    name: "EduPlus",
+    founded_year: 2003,
+    offices: [
+      { city: "Chicago", state: "IL" }
+    ]
+  }
+])
