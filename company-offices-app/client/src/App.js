@@ -1,8 +1,8 @@
 import React from "react";
-import OfficesByState from "./components/OfficesByState";
-import CompaniesByYear from "./components/CompaniesByYear";
-import FoundingYearChart from "./components/FoundingYearChart";
-import StateBarChart from "./components/StateBarChart";
+//import OfficesByState from "./components/OfficesByState";
+//import CompaniesByYear from "./components/CompaniesByYear";
+//import FoundingYearChart from "./components/FoundingYearChart";
+//import StateBarChart from "./components/StateBarChart";
 import './App.css';
 
 function App() {
@@ -95,56 +95,11 @@ function App() {
               📊 Histogram Project
            </a>
           </li>
+          <a href="/company-results.html" target="_blank" rel="noopener noreferrer">
+           💺 Company Offices App
+          </a>
+          
        </ul>
-      </div>
-
-            {/* 📄 Section: Artifact Narrative – Company Offices App */}
-      <div className="section">
-        <h2>📄 Artifact Narrative – Company Offices App</h2>
-
-        <p><strong>Brief Description:</strong><br />
-        The Company Offices App is a full-stack web application built using a React frontend and a MongoDB backend. It presents company data by founding year and by state using charts and tables for visual clarity and analysis.
-        </p>
-
-        <p><strong>Why I Selected It:</strong><br />
-        Originally, this artifact was intended to build on code I had written for interacting with a database to display company data. However, I realized that the original project was stored on a remote server I no longer had access to. Rather than abandon the idea, I chose to fully rebuild the entire application from scratch. This required creating a new MongoDB database, designing a backend API to connect to it, and developing a new React-based frontend to present the data.
-        </p>
-
-        <p><strong>Enhancements and Skills Demonstrated:</strong><br />
-        The enhancements involved a complete rebuild and full implementation of both backend and frontend components. I designed and built a RESTful API to communicate with a MongoDB database, structured and seeded company data, and developed a React interface with dynamic charts and tables. I emphasized a clean UI and made sure the app followed logical component structure and routing.
-        </p>
-
-        <ul>
-          <li>MongoDB schema design and database integration</li>
-          <li>Backend development using Node.js and Express</li>
-          <li>API creation and data flow management</li>
-          <li>Frontend development with React and data visualization tools</li>
-          <li>Applying full-stack practices and UI/UX principles</li>
-        </ul>
-
-        <p><strong>Course Outcomes Met:</strong></p>
-        <ul>
-          <li>Demonstrate an ability to use innovative tools and frameworks in computing practices</li>
-          <li>Design and evaluate computing solutions using computer science standards</li>
-          <li>Communicate technical content through visual and interactive tools</li>
-          <li>Develop a security mindset (input validation and secure data handling)</li>
-        </ul>
-      </div>
-
-
-
-      {/* Section: Companies by Year */}
-      <div className="section">
-        <h2>Growth Over Time</h2>
-        <FoundingYearChart />
-        <CompaniesByYear />
-      </div>
-
-      {/* Section: Offices by State */}
-      <div className="section">
-        <h2>State Concentration</h2>
-        <StateBarChart />
-        <OfficesByState />
       </div>
     </div>
   );
