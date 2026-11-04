@@ -1,107 +1,94 @@
 import React from "react";
-//import OfficesByState from "./components/OfficesByState";
-//import CompaniesByYear from "./components/CompaniesByYear";
-//import FoundingYearChart from "./components/FoundingYearChart";
-//import StateBarChart from "./components/StateBarChart";
-import './App.css';
+import "./App.css";
+
+const github = "https://github.com/Chart5893";
+const siteRepo = github + "/Chart5893.github.io/tree/main";
+
+function Tags({ items }) {
+  return <ul className="tags" aria-label="Technologies">{items.map(item => <li key={item}>{item}</li>)}</ul>;
+}
 
 function App() {
   return (
-    <div className="container">
-      <h1>Christian Hart Portfolio</h1>
-      <div className="section">
-        <h2>👤 Professional Self-Assessment</h2>
-        <p>
-          As I wrap up my Computer Science degree, I’m looking ahead to joining a small, focused development team where I can contribute meaningfully and continue growing. I’m not particularly interested in freelancing—though I’m open to the idea if the right opportunity came along. What I really want is to be part of a collaborative group—five to ten people—solving problems together, building reliable software, and learning from each other.
-          </p>
-          <p>
-            One of the biggest strengths I’m bringing out of this program is perseverance. There were times I felt stuck or overwhelmed, but I kept working through it...
-            
-            </p>
-          <p>
-            One of the things that really surprised me during this program was how simple processes—small pieces of logic or data—can work together to create something much more complex. I knew that in theory before, but it hit differently once I started building real code. There’s something really cool about seeing that click into place.
-          </p>
-          <p>
-            I came into this degree very unsure of my abilities. I doubted whether I had what it took to succeed in programming. Now, after all the coursework and challenges, I feel confident. I’ve learned how to face unfamiliar problems and find solutions. Even if I don’t know something right away, I know how to learn it. I’ve also discovered that I enjoy the challenges of full-stack development and AI. Both were difficult subjects, but they kept me engaged and pushed me to think differently.
-          </p>
-          <p>
-            Over the course of this degree, I’ve built a solid foundation across the core areas of computer science—from working with data structures and algorithms to building full-stack applications. I’ve learned how to write code that’s not just functional, but also maintainable and scalable. My coursework emphasized clean design, modularity, and efficient problem-solving, and I’ve applied those principles to each artifact in this portfolio.
-          </p>
-          <p>
-            Communication and collaboration have also been key takeaways. While my coding projects were often solo efforts, I’ve had real-world experience leading teams of 15 or more people in retail management roles. That taught me how to coordinate efforts, resolve conflict, and motivate others—skills I know translate directly into a development team environment. I value clear communication, and I’ve learned how important it is when discussing technical ideas with teammates or explaining decisions to non-technical stakeholders.
-          </p>
-          <p>
-            I’ve also built a strong understanding of database management, API integration, and full-stack development—especially through my work on the Company Offices App. In every project, I try to think critically about security as well: validating inputs, anticipating misuse, and ensuring that my designs are resilient rather than fragile.
-          </p>
-          <p>
-            The artifacts in this portfolio represent growth in three core areas of computer science: software design, algorithms and data structures, and databases. Each one was selected intentionally—not just to check boxes, but because they challenged me in meaningful ways and gave me a chance to demonstrate what I’ve learned.
+    <>
+      <a className="skip-link" href="#main">Skip to content</a>
+      <header className="site-header">
+        <a className="wordmark" href="/" aria-label="Christian Hart, home">CH<span>Christian Hart</span></a>
+        <nav aria-label="Main navigation">
+          <a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact <span aria-hidden="true">↗</span></a>
+        </nav>
+      </header>
+      <main id="main">
+        <section className="hero" aria-labelledby="intro">
+          <div>
+            <p className="eyebrow"><span className="status-dot" /> Software developer · North Georgia</p>
+            <h1 id="intro">Practical problems.<br /><em>Thoughtful software.</em></h1>
+            <p className="intro">I'm Christian Hart. I build web applications, Android tools, and interactive prototypes—connecting useful ideas with the code that makes them work.</p>
+            <div className="actions"><a className="button" href="#work">Explore my work <span aria-hidden="true">↓</span></a><a className="text-link" href="https://www.linkedin.com/in/christianhartcs/">Connect on LinkedIn ↗</a></div>
+          </div>
+          <aside className="hero-note" aria-label="Professional focus">
+            <p className="eyebrow">From idea to implementation</p>
+            <p className="note-title">Curious by nature.<br />Practical by experience.</p>
+            <p>A computer science foundation, hands-on project work, and years of experience helping teams get things done.</p>
+            <div className="note-footer"><span>B.S. Computer Science</span><span>SNHU · 2025</span></div>
+          </aside>
+        </section>
 
-          </p>
-          <p>- Treasure Hunt Game: This project generates a maze that is then solved by an AI agent. For my capstone enhancement, I implemented a custom guidance algorithm to help the AI learn more efficiently. This demonstrates my understanding of AI behavior, reinforcement learning principles, and algorithm design, as well as the ability to develop heuristics and intelligent pathfinding strategies.
-          </p>
-          <p>
-            - Histogram Project: This artifact demonstrates my understanding of data structures and algorithms, with both CLI and GUI implementations that analyze and visualize text data.
+        <section id="work" className="section" aria-labelledby="work-title">
+          <div className="section-heading"><div><p className="eyebrow">01 / Selected work</p><h2 id="work-title">Building beyond the classroom.</h2></div><p>Independent projects, experiments, and the engineering decisions behind them.</p></div>
+          <article className="featured project">
+            <div className="project-copy">
+              <p className="eyebrow">Independent Android project</p>
+              <h3>Handy Farmer</h3>
+              <p className="project-lead">A practical toolkit for the small farm.</p>
+              <p>Drawing on my small-farm background, I developed an Android app that brings field work and livestock records into one place. The project connects mobile interfaces, local data storage, mapping, and weather information around everyday farm tasks.</p>
+              <Tags items={["Kotlin", "Jetpack Compose", "Room", "Maps"]} />
+              <details><summary>Explore the project</summary><div className="detail-body"><h4>The problem</h4><p>Small farms need a manageable way to keep track of field activity and animal records while working outside.</p><h4>My implementation</h4><p>Built workflows for GPS spray coverage, saved fields, livestock births, vaccinations, sales, and breeding reminders. Integrated weather information to support planning.</p><h4>Engineering focus</h4><p>Connecting location-based workflows with structured records and a mobile interface designed around farm tasks.</p><p className="muted">Independent development project. Source code and a public download are not linked here.</p></div></details>
+            </div>
+            <div className="farm-panel" aria-label="Handy Farmer feature overview">
+              <p className="eyebrow">Built around the work</p>
+              <div className="farm-row"><span className="feature-number">01</span><div><h4>In the field</h4><p>Field mapping & GPS spray coverage</p></div></div>
+              <div className="farm-row"><span className="feature-number">02</span><div><h4>With the herd</h4><p>Livestock records & breeding reminders</p></div></div>
+              <div className="farm-row"><span className="feature-number">03</span><div><h4>Planning ahead</h4><p>Weather information & farm reports</p></div></div>
+              <p className="panel-caption">Domain knowledge → useful workflows</p>
+            </div>
+          </article>
+          <div className="project-grid">
+            <article className="project secondary">
+              <p className="eyebrow">Spatial interaction · Prototype</p><h3>Floor-anchored WebAR</h3>
+              <p>Place a virtual object on a real-world floor through a mobile browser. A preview-and-confirm workflow combines surface detection, drag adjustment, height locking, and transform freezing to reduce placement drift.</p>
+              <Tags items={["TypeScript / JavaScript", "8th Wall", "Three.js", "ECS"]} />
+              <details><summary>Engineering decisions</summary><div className="detail-body"><p>Separated interaction coordination, UI guidance, and placement utilities into modular components. The public showcase replaces client-owned assets with a programmatic cube and excludes licensed SDK files.</p><p>This is a code and architecture showcase, not a standalone runnable application.</p></div></details>
+              <a className="text-link project-link" href={github + "/web-ar-floor-anchored-experience"}>Explore code & architecture ↗</a>
+            </article>
+            <article className="project secondary">
+              <p className="eyebrow">Simulation · Experimental foundation</p><h3>Pokémon Team Selector</h3>
+              <p>A Python battle-simulation backend exploring team comparison. A FastAPI endpoint accepts two teams, runs a series of battles through a local Pokémon Showdown server, and returns wins and ties.</p>
+              <Tags items={["Python", "FastAPI", "Pydantic", "poke-env"]} />
+              <details><summary>Engineering decisions</summary><div className="detail-body"><p>Separated the request layer, simulation engine, and policy logic. Requests use typed models and clamp battle counts to 1–2,000.</p><p>The current policy chooses random moves. Learned policies and optimal team selection are future goals, not completed capabilities.</p></div></details>
+              <a className="text-link project-link" href={github + "/PokemonOptimalTeamSelector"}>Explore the source ↗</a>
+            </article>
+          </div>
+        </section>
 
-          </p>
-          <p>
-            - Company Offices App: Built with React and MongoDB-style structures, this full-stack dashboard showcases my ability to work with databases, APIs, and front-end visualization in a cohesive web project.
+        <section className="section academic" aria-labelledby="academic-title">
+          <div className="section-heading"><div><p className="eyebrow">02 / Academic foundation</p><h2 id="academic-title">Where the foundations took shape.</h2></div><p>Selected CS capstone work in full-stack development, algorithms, and data processing.</p></div>
+          <div className="academic-list">
+            <article><span className="project-index">01</span><div><h3>Company Offices App</h3><p>Rebuilt a company-data application with a MongoDB database, Express API, and React interface. Charts and tables explore founding years and office locations.</p><Tags items={["React", "Node.js / Express", "MongoDB", "Recharts"]} /><div className="inline-links"><a href="/company-results.html">View results & case study ↗</a><a href={siteRepo + "/company-offices-app"}>Source code ↗</a></div></div></article>
+            <article><span className="project-index">02</span><div><h3>Treasure Hunt AI</h3><p>A maze-solving reinforcement learning project enhanced with a custom guidance algorithm to support the agent's learning. Explores pathfinding, reward-driven behavior, and algorithm design.</p><Tags items={["Python", "Reinforcement learning", "Pathfinding"]} /><div className="inline-links"><a href="/TreasureHuntGame/">View project & narrative ↗</a><a href={siteRepo + "/TreasureHuntGame"}>Source code ↗</a></div></div></article>
+            <article><span className="project-index">03</span><div><h3>Grocery Frequency Tracker</h3><p>A text-data analysis tool with terminal and Tkinter interfaces. Counts grocery items, supports case-insensitive searches, visualizes frequencies, and exports results.</p><Tags items={["Python", "Tkinter", "File processing"]} /><div className="inline-links"><a href="/HistogramProject/">View project & narrative ↗</a><a href={siteRepo + "/HistogramProject"}>Source code ↗</a></div></div></article>
+          </div>
+          <details className="archive"><summary>Capstone review & original self-assessment</summary><div className="detail-body"><p>For a deeper look at the academic work, explore the original code review and the reflection written before graduation.</p><div className="inline-links"><a href="https://www.youtube.com/watch?v=2M2WEjkR7k0">Watch the code review ↗</a><a href="/capstone-assessment.html">Read the archived self-assessment ↗</a></div></div></details>
+        </section>
 
-          </p>
-          <p>
-            Together, these projects reflect a well-rounded skill set—and more importantly, they prove that I can approach problems from design to implementation and see them through.
-
-          </p>
-          <p>
-            Putting this portfolio together has shown me just how far I’ve come. I started this program unsure of what I could accomplish, but now I’ve completed real projects, solved real problems, and built tools I’m proud of. I’m confident in my ability to contribute to a development team, learn new technologies as needed, and stay adaptable in a constantly changing field.
-
-          </p>
-          <p>
-            I look forward to the opportunities that earning this degree will provide me. While this period of change has been difficult at times, I’ve come to understand that real growth only happens through discomfort—and I’m ready for what comes next.
-
-          </p>
-
-      </div>
-
-
-      {/* 📹 Section: Code Review Video */}
-      <div className="section">
-        <h2>📹 Capstone Code Review Video</h2>
-        <p>This video walks through the original functionality of my artifact, outlines areas for improvement, and explains my enhancement plans.</p>
-        <div className="video-container">
-          <iframe 
-            width="560" 
-            height="315" 
-            src="https://www.youtube.com/embed/2M2WEjkR7k0" 
-            title="CS499 Capstone Code Review" 
-            frameBorder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowFullScreen
-          ></iframe>
-        </div>
-      </div>
-
-       {/* 🌐 Section: Additional Portfolio Projects */}
-      <div className="section">
-        <h2>🌐 Portfolio Projects</h2>
-        <p>Here are links to my other enhanced capstone projects:</p>
-        <ul>
-          <li>
-            <a href="https://chart5893.github.io/TreasureHuntGame/" target="_blank" rel="noopener noreferrer">
-             🧭 Treasure Hunt Game
-            </a>
-          </li>
-         <li>
-           <a href="https://chart5893.github.io/HistogramProject/" target="_blank" rel="noopener noreferrer">
-              📊 Histogram Project
-           </a>
-          </li>
-          <a href="/company-results.html" target="_blank" rel="noopener noreferrer">
-           💺 Company Offices App
-          </a>
-          
-       </ul>
-      </div>
-    </div>
+        <section id="about" className="section about" aria-labelledby="about-title">
+          <div><p className="eyebrow">03 / About me</p><h2 id="about-title">A developer with<br /><em>an operations mindset.</em></h2></div>
+          <div className="about-copy"><p className="large-copy">I bring a practical approach to software: understand the problem, break it into manageable pieces, and build something people can use.</p><p>I earned my B.S. in Computer Science from Southern New Hampshire University in 2025. Since graduating, I've continued building independently across Android development, web-based augmented reality, and Python simulation tooling.</p><p>Before and alongside that technical work, I held retail leadership roles managing teams of 15 or more people. That experience taught me to communicate clearly, coordinate competing priorities, and stay accountable when plans change—habits I bring to development work.</p><p>I'm looking for a software development team where I can contribute to useful products, collaborate on technical decisions, and keep growing through hands-on work and feedback.</p><div className="skills"><div><h3>Application development</h3><p>React · JavaScript · Kotlin · Jetpack Compose</p></div><div><h3>Data & backend</h3><p>Python · FastAPI · Node.js · Express · MongoDB · Room</p></div></div></div>
+        </section>
+        <section id="contact" className="contact" aria-labelledby="contact-title"><div><p className="eyebrow">04 / Let's connect</p><h2 id="contact-title">Have a useful problem<br />to work on?</h2><p>Open to software development opportunities and conversations with thoughtful engineering teams.</p></div><div className="contact-links"><a className="button" href="https://www.linkedin.com/in/christianhartcs/">Connect on LinkedIn ↗</a><a className="text-link" href={github}>See more on GitHub ↗</a></div></section>
+      </main>
+      <footer><span>Christian Hart · Software Developer</span><span>Built with React. Grounded in practical work.</span></footer>
+    </>
   );
 }
 
