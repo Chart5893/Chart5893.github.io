@@ -1,1 +1,5 @@
 TreasureHuntGame/venv/
+
+node_modules/
+company-offices-app/client/build/
+.openai/
