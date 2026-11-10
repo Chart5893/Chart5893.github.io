@@ -55,6 +55,13 @@ function App() {
           </article>
           <div className="project-grid">
             <article className="project secondary">
+              <p className="eyebrow">Android · Active development</p><h3>Sprinter</h3>
+              <p>An offline-first workout tracker designed for fast, distraction-free use in the gym. Create reusable routines, organize exercises, and track workout sets with rest timers and local persistence.</p>
+              <Tags items={["Kotlin", "Jetpack Compose", "Material 3", "Room"]} />
+              <details><summary>Engineering decisions</summary><div className="detail-body"><p>Designed around reusable exercise and routine data, per-set tracking, and an interface that stays practical during workouts. Local storage keeps core functionality independent of a network connection.</p><p>Actively developed; account-linked subscriptions and optional AI-assisted workout reviews are planned features, not released capabilities.</p></div></details>
+              <a className="text-link project-link" href={github + "/Sprinter"}>Explore Sprinter on GitHub ↗</a>
+            </article>
+            <article className="project secondary">
               <p className="eyebrow">Spatial interaction · Prototype</p><h3>Floor-anchored WebAR</h3>
               <p>Place a virtual object on a real-world floor through a mobile browser. A preview-and-confirm workflow combines surface detection, drag adjustment, height locking, and transform freezing to reduce placement drift.</p>
               <Tags items={["TypeScript / JavaScript", "8th Wall", "Three.js", "ECS"]} />
